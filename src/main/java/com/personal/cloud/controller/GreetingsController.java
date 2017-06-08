@@ -21,6 +21,7 @@ public class GreetingsController {
                                   @RequestHeader("x-forwarded-host") Optional<String> host,
                                   @RequestHeader("x-forwarded-port") Optional<Integer> port) {
 
+        //Simple Comment added
         host.ifPresent(System.out::println);
         port.ifPresent(System.out::println);
 
