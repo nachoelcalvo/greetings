@@ -1,5 +1,8 @@
 package com.personal.cloud.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.endpoint.SystemPublicMetrics;
+import org.springframework.boot.actuate.metrics.dropwizard.DropwizardMetricServices;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,9 +17,25 @@ import java.util.Map;
 @RestController
 public class GreetingsController {
 
+    private DropwizardMetricServices metricServices;
+
+    @Autowired
+    public GreetingsController(DropwizardMetricServices dropwizardMetricServices) {
+        this.metricServices = dropwizardMetricServices;
+    }
+
     @GetMapping(path = "/greetings/{name}")
     Map<String, String> greetings(@PathVariable String name){
-        return Collections.singletonMap("Hello !!! ", name);
+
+        metricServices.increment("counter.greetings");
+
+        long start = System.currentTimeMillis();
+        Map<String, String> greeting = Collections.singletonMap("Hello !!! ", name);
+        long stop = System.currentTimeMillis();
+
+        metricServices.submit("timer.greeting", stop-start);
+
+        return greeting;
     }
 
 }
