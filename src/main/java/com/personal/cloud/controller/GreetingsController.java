@@ -22,7 +22,7 @@ public class GreetingsController {
     private DropwizardMetricServices metricServices;
 
     @Autowired
-    public GreetingsController(DropwizardMetricServices dropwizardMetricServices) {
+    public GreetingsController(DropwizardMetricServices dropwizardMetricServices    ) {
         this.metricServices = dropwizardMetricServices;
     }
 

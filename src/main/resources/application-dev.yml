@@ -14,3 +14,7 @@ management:
   security:
     enabled: false
 
+database:
+  host: fake-host
+  port: 8888
+  enable : false
