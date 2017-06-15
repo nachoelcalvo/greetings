@@ -13,3 +13,8 @@ spring:
 management:
   security:
     enabled: false
+
+database:
+  host: prod-host
+  port: 9999
+  enable : false
