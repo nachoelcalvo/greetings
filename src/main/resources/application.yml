@@ -1,0 +1,15 @@
+#### default profile #####
+eureka:
+  client:
+    enabled: false
+
+server:
+  port: 9090
+
+spring:
+  application:
+    name: greetings-service
+
+management:
+  security:
+    enabled: false

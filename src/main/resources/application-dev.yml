@@ -1,0 +1,16 @@
+#### dev profile #####
+eureka:
+  client:
+    enabled: false
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: greetings-service
+
+management:
+  security:
+    enabled: false
+
