@@ -1,7 +1,7 @@
 #### default profile #####
 eureka:
   client:
-    enabled: false
+    enabled: true
 
 server:
   port: 9090
